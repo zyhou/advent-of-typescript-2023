@@ -17,6 +17,10 @@
     "moduleResolution": "NodeNext",
     "module": "NodeNext",
     "outDir": "dist",
-    "sourceMap": true
+    "sourceMap": false,
+
+    // no need
+    // not working when you add a specific file on tsc command line
+    "noEmit": true
   }
 }
