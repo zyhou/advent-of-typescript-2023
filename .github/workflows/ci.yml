@@ -41,7 +41,7 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "pnpm"
       - run: pnpm install
-      - run: pnpm check-types
+      - run: pnpm typecheck
 
   code-quality:
     runs-on: ubuntu-latest
