@@ -1,5 +1,10 @@
 import { Expect, Equal } from "type-testing";
 
-const age = Number(42);
+type SantasFavoriteCookies = "ginger-bread" | "chocolate-chip";
 
-type test_age = Expect<Equal<number, typeof age>>;
+// ------------------- Test section ---------------------
+
+type test_0_actual = SantasFavoriteCookies;
+//   ^?
+type test_0_expected = "ginger-bread" | "chocolate-chip";
+type test_0 = Expect<Equal<test_0_actual, test_0_expected>>;
