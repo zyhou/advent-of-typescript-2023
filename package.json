@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "tsc --watch ./$DAY/index.ts",
-    "check-types": "tsc",
+    "typecheck": "tsc -p tsconfig.base.json",
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write --ignore-unknown --cache",

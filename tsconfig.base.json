@@ -22,5 +22,7 @@
     // no need
     // not working when you add a specific file on tsc command line
     "noEmit": true
-  }
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", "./**/*.js"]
 }
