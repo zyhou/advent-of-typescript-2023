@@ -5,8 +5,8 @@ interface Address {
   city: string;
 }
 type PresentDeliveryList<T> = {
-  [K in keyof T]: Address
-}
+  [K in keyof T]: Address;
+};
 
 // ------------------- Test section ---------------------
 
