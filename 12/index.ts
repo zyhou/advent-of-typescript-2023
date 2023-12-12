@@ -7,6 +7,17 @@ import { Expect, Equal } from "type-testing";
 //     : FindSanta<Rest>
 //   : never;
 
+// The best one imo
+// source: https://twitter.com/ecyrbedev/status/1734578564215812513
+// type FindSanta<
+//   T,
+//   K extends keyof T = keyof T,
+// > = K extends `${infer Index extends number}`
+//   ? T[K] extends "🎅🏼"
+//     ? Index
+//     : never
+//   : never;
+
 type StringToNumber<T> = T extends `${infer R extends number}` ? R : never;
 
 type FindSanta<T extends unknown[]> = {
