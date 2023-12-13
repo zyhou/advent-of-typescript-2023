@@ -10,6 +10,7 @@ import { Expect, Equal } from "type-testing";
 //   : DayCounter<Start, End, [...Accumulator, Accumulator["length"]]>;
 
 // Thanks to https://itnext.io/implementing-arithmetic-within-typescripts-type-system-a1ef140a6f6f
+// Another great article: https://konstantinlebedev.com/typescript-advanced-esoteric/
 // Copy paste BuildTuple and Add tuple
 type BuildTuple<
   Length extends number,
