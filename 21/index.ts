@@ -98,12 +98,7 @@ type TicTacToe<
           ColumnIndex[Column]
         > extends infer NewBoard extends TicTacToeBoard
       ? {
-          board: SelectSquare<
-            Game["board"],
-            Game["state"],
-            RowIndex[Row],
-            ColumnIndex[Column]
-          >;
+          board: NewBoard;
           state: EvalState<NewBoard, Game["state"]>;
         }
       : never
