@@ -51,33 +51,8 @@ type IsWin<Board extends TicTacToeBoard, State extends TicTacToeState> = [
   ? true
   : false;
 
-type IsFullRow<R extends TicTacToeCell[]> = R extends [
-  infer F,
-  infer S,
-  infer T,
-]
-  ? F extends TicTacToeChip
-    ? S extends TicTacToeChip
-      ? T extends TicTacToeChip
-        ? true
-        : false
-      : false
-    : false
-  : false;
-
-type IsDraw<B extends TicTacToeBoard> = B extends [
-  infer Row1 extends TicTacToeCell[],
-  infer Row2 extends TicTacToeCell[],
-  infer Row3 extends TicTacToeCell[],
-]
-  ? IsFullRow<Row1> extends true
-    ? IsFullRow<Row2> extends true
-      ? IsFullRow<Row3> extends true
-        ? true
-        : false
-      : false
-    : false
-  : false;
+type IsDraw<Board extends TicTacToeBoard> =
+  TicTacToeEmptyCell extends Board[number][number] ? false : true;
 
 type EvalState<
   Board extends TicTacToeBoard,
@@ -211,15 +186,6 @@ interface test_draw_expected {
   state: "Draw";
 }
 type test_draw = Expect<Equal<test_draw_actual, test_draw_expected>>;
-
-// ---- Extra test IsFullRow
-
-type test_IsFullRow1 = Expect<Equal<IsFullRow<["❌", "❌", "❌"]>, true>>;
-type test_IsFullRow2 = Expect<Equal<IsFullRow<["⭕", "⭕", "⭕"]>, true>>;
-type test_IsFullRow3 = Expect<Equal<IsFullRow<["  ", "⭕", "⭕"]>, false>>;
-type test_IsFullRow4 = Expect<Equal<IsFullRow<["⭕", "  ", "⭕"]>, false>>;
-type test_IsFullRow5 = Expect<Equal<IsFullRow<["⭕", "⭕", "  "]>, false>>;
-type test_IsFullRow6 = Expect<Equal<IsFullRow<["  ", "  ", "  "]>, false>>;
 
 // ---- Extra test IsDraw
 
